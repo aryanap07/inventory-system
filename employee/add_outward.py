@@ -1,9 +1,14 @@
 import pandas as pd
 from datetime import datetime
+from prompt_toolkit import prompt
+from prompt_toolkit.completion import WordCompleter
 
 def run():
+    #csv-read
     parts = pd.read_csv("data/parts_master.csv")
     outward = pd.read_csv("data/outward_log.csv")
+    part_ids = parts["part_id"].astype(str).tolist()
+    completer = WordCompleter(part_ids, ignore_case=True)
     while True:
         part_id = input("Enter part_id: ")
         qty = int(input("Enter quantity: "))
@@ -14,11 +19,11 @@ def run():
         new_item = {
             "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "part_id": part_id,
-            "qty": qty
+            "quantity": qty
         }
 
         outward = pd.concat([outward, pd.DataFrame([new_item])])
-        outward.to_csv("Inventory-system/data/outward_log.csv", index=False)
+        outward.to_csv("data/outward_log.csv", index=False)
 
         print("✅ Outward stock added successfully")
 
