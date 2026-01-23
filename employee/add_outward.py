@@ -10,11 +10,13 @@ def run():
     part_ids = parts["part_id"].astype(str).tolist()
     completer = WordCompleter(part_ids, ignore_case=True)
 
-
+    #loop
     while True:
+        #user-stock-input
         part_id = prompt("Enter part_id: ", completer=completer)
         qty = int(input("Enter quantity: "))
 
+        #check
         if part_id not in parts["part_id"].values:
             print("❌ Invalid part_id")
 
@@ -24,11 +26,13 @@ def run():
             "quantity": qty
         }
 
+        #processing outward
         outward = pd.concat([outward, pd.DataFrame([new_item])])
         outward.to_csv("data/outward_log.csv", index=False)
 
         print("✅ Outward stock added successfully")
 
+        #options
         more = input("Add another part? (y/n): ").lower()
         if more != "y":
             print("↩ Returning to Employee Dashboard...\n")
