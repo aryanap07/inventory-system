@@ -9,8 +9,10 @@ def run():
     outward = pd.read_csv("data/outward_log.csv")
     part_ids = parts["part_id"].astype(str).tolist()
     completer = WordCompleter(part_ids, ignore_case=True)
+
+
     while True:
-        part_id = input("Enter part_id: ")
+        part_id = prompt("Enter part_id: ", completer=completer)
         qty = int(input("Enter quantity: "))
 
         if part_id not in parts["part_id"].values:
