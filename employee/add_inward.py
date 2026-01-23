@@ -3,8 +3,8 @@ from datetime import datetime
 
 def run():
     #csv-read
-    parts = pd.read_csv("Inventory-system/data/parts_master.csv")
-    inward = pd.read_csv("Inventory-system/data/inward_log.csv")
+    parts = pd.read_csv("data/parts_master.csv")
+    inward = pd.read_csv("data/inward_log.csv")
 
     while True:
         #user-stock-input
@@ -13,7 +13,7 @@ def run():
 
         if part_id not in parts["part_id"].values:
             print("❌ Invalid part_id")
-        
+            
         new_item = {
             "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "part_id": part_id,

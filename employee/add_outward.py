@@ -2,8 +2,8 @@ import pandas as pd
 from datetime import datetime
 
 def run():
-    parts = pd.read_csv("Inventory-system/data/parts_master.csv")
-    outward = pd.read_csv("Inventory-system/data/outward_log.csv")
+    parts = pd.read_csv("data/parts_master.csv")
+    outward = pd.read_csv("data/outward_log.csv")
     while True:
         part_id = input("Enter part_id: ")
         qty = int(input("Enter quantity: "))
