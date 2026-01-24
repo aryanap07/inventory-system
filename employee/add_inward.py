@@ -38,3 +38,6 @@ def run():
             print("↩ Returning to Employee Dashboard...\n")
             return
 
+
+if __name__ == "__main__":
+    run()
