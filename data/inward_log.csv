@@ -1,5 +1,3 @@
-date,part_id,quantity
-2026-01-21 19:12:52,53199-K0N-D10,10
-2026-01-23 21:39:06,90558-KTR-900,20
-2026-01-23 21:51:54,06430-KVT-D10,5
-2026-01-24 17:19:11,53175-K0N-D10,20
+date,part_id,quantity,distributor
+2026-02-02 16:51:35,90558-KTR-900,10,Skyline Enterprise
+2026-02-02 17:16:06,90444-KF0-000,20,Skyline Enterprise

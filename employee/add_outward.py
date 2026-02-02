@@ -13,30 +13,32 @@ def run():
     #loop
     while True:
         #user-stock-input
+        customer = input("Enter Customer Name: ")
         part_id = prompt("Enter part_id: ", completer=completer)
-        qty = int(input("Enter quantity: "))
 
         #check
-        if part_id not in parts["part_id"].values:
+        if part_id not in parts["part_id"].astype(str).values:
             print("❌ Invalid part_id")
 
-        new_item = {
-            "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "part_id": part_id,
-            "quantity": qty
-        }
+        else:
+            qty = int(input("Enter quantity: "))
+            new_item = {
+                "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                "part_id": part_id,
+                "quantity": qty,
+                "customer": customer
+            }
+            #processing outward
+            outward = pd.concat([outward, pd.DataFrame([new_item])])
+            outward.to_csv("data/outward_log.csv", index=False)
 
-        #processing outward
-        outward = pd.concat([outward, pd.DataFrame([new_item])])
-        outward.to_csv("data/outward_log.csv", index=False)
+            print("✅ Outward stock added successfully")
 
-        print("✅ Outward stock added successfully")
-
-        #options
-        more = input("Add another part? (y/n): ").lower()
-        if more != "y":
-            print("↩ Returning to Employee Dashboard...\n")
-            return        
+            #options
+            more = input("Add another part? (y/n): ").lower()
+            if more != "y":
+                print("↩ Returning to Employee Dashboard...\n")
+                return        
 
 if __name__ == "__main__":
     run()
