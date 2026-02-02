@@ -1,44 +1,61 @@
-import pandas as pd
 from datetime import datetime
 from prompt_toolkit import prompt
 from prompt_toolkit.completion import WordCompleter
+from services.supabase_client import supabase
+
 
 def run():
-    #csv-read
-    parts = pd.read_csv("data/parts_master.csv")
-    outward = pd.read_csv("data/outward_log.csv")
-    part_ids = parts["part_id"].astype(str).tolist()
-    completer = WordCompleter(part_ids, ignore_case=True)
 
-    #loop
+    try:
+        parts_data = supabase.table("parts_master").select("part_id").execute().data
+        part_ids = [p["part_id"] for p in parts_data]
+
+        completer = WordCompleter(part_ids, ignore_case=True)
+
+    except Exception as e:
+        print("❌ DB fetch error:", e)
+        return
+
     while True:
-        #user-stock-input
-        customer = input("Enter Customer Name: ")
-        part_id = prompt("Enter part_id: ", completer=completer)
+        try:
+            customer = input("Enter Customer Name: ")
 
-        #check
-        if part_id not in parts["part_id"].astype(str).values:
-            print("❌ Invalid part_id")
+            part_id = prompt(
+                "Enter part_id: ",
+                completer=completer
+            )
 
-        else:
+            if part_id not in part_ids:
+                print("❌ Invalid part_id")
+                continue
+
             qty = int(input("Enter quantity: "))
-            new_item = {
-                "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+
+            if qty <= 0:
+                print("❌ Quantity must be positive")
+                continue
+
+            data = {
                 "part_id": part_id,
                 "quantity": qty,
                 "customer": customer
-            }
-            #processing outward
-            outward = pd.concat([outward, pd.DataFrame([new_item])])
-            outward.to_csv("data/outward_log.csv", index=False)
+                }
 
-            print("✅ Outward stock added successfully")
+            supabase.table("outward_log").insert(data).execute()
 
-            #options
-            more = input("Add another part? (y/n): ").lower()
+            print("✅ Outward stock saved to cloud!")
+
+            more = input("Add another? (y/n): ").lower()
             if more != "y":
-                print("↩ Returning to Employee Dashboard...\n")
-                return        
+                print("↩ Returning...\n")
+                return
+
+        except ValueError:
+            print("❌ Enter valid number")
+
+        except Exception as e:
+            print("⚠ Error:", e)
+
 
 if __name__ == "__main__":
     run()
