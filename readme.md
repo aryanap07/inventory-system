@@ -1,6 +1,6 @@
 📦 Introduction
 
-This is a personal inventory management project built to explore real-world backend concepts and database-driven applications. The goal was to move beyond basic tutorials and create something practical that solves a real problem — managing stock in a small workshop or spare-parts environment.
+StockFlow is a personal inventory management project built to explore real-world backend concepts and database-driven applications. The goal was to move beyond basic tutorials and create something practical that solves a real problem — managing stock in a small workshop or spare-parts environment.
 
 The system replaces manual record-keeping with a simple digital workflow where inward and outward stock can be tracked reliably. It focuses on clean logic, data validation, and structured code design rather than a flashy interface.
 
