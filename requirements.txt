@@ -1,0 +1,4 @@
+supabase==2.4.0
+python-dotenv==1.0.1
+prompt-toolkit==3.0.43
+pandas==2.2.2
