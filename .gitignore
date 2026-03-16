@@ -1,4 +1,3 @@
-.gitignore
 # Environment variables
 .env.unique
 services/.env.unique
