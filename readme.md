@@ -80,7 +80,7 @@ inventory-system/
 |---|---|
 | Language | Python 3.10+ |
 | Database | Supabase (PostgreSQL) |
-| DB Client | supabase-py 2.4.0 |
+| DB Client | supabase-py 2.7.0 |
 | CLI Input | prompt-toolkit 3.0.43 |
 | Config | python-dotenv 1.0.1 |
 
