@@ -2,13 +2,10 @@ from prompt_toolkit import prompt
 from prompt_toolkit.completion import WordCompleter
 from services.supabase_client import supabase
 
-
 def cancel(x):
     return x.lower() == "cancel"
 
-
 def run():
-
     # load parts & distributors once
     try:
         parts = supabase.table("parts_master").select("part_id").execute().data
@@ -25,7 +22,6 @@ def run():
         return
 
     while True:
-
         # distributor input
         while True:
             dist = prompt("Distributor (cancel to stop): ",
@@ -89,7 +85,6 @@ def run():
 
         if input("Add more? (y/n): ").lower() != "y":
             return
-
 
 if __name__ == "__main__":
     run()
