@@ -1,6 +1,6 @@
 # Environment variables
-.env.unique
-services/.env.unique
+.env
+services/.env
 
 # Python
 __pycache__/
