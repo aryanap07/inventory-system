@@ -37,7 +37,6 @@ def run():
             if stock == 0:
                 print("Out of stock")
                 continue
-
             break
 
         # choose quantity
@@ -57,7 +56,6 @@ def run():
                 if qty > stock:
                     print(f"Only {stock} available")
                     continue
-
                 break
 
             except ValueError:
