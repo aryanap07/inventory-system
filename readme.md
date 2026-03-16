@@ -151,7 +151,7 @@ python main.py
 
 | Version | Highlights |
 |---|---|
-| v1.1 | Added `main.py` entry point, wrapped dashboard in `run()`, fixed null quantity crash, added `.gitignore` and `.env.example` |
+| v1.0.1 | Added `main.py` entry point, wrapped dashboard in `run()`, fixed null quantity crash, added `.gitignore` and `.env.example` |
 | v1.0 | Initial release — inward/outward logging, live stock check, Supabase integration, autocomplete inputs |
 
 ---
