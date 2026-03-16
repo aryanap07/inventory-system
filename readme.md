@@ -7,7 +7,6 @@
 ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?style=flat-square&logo=supabase&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-f59e0b?style=flat-square)
-![Version](https://img.shields.io/badge/Version-1.1-ef4444?style=flat-square)
 
 </div>
 
