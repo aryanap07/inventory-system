@@ -63,7 +63,6 @@ def run():
                 if qty <= 0:
                     print("Must be positive")
                     continue
-
                 break
 
             except ValueError:
@@ -85,6 +84,7 @@ def run():
 
         if input("Add more? (y/n): ").lower() != "y":
             return
+
 
 if __name__ == "__main__":
     run()
