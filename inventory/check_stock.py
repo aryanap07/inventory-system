@@ -3,9 +3,7 @@ from prompt_toolkit.completion import WordCompleter
 from services.supabase_client import supabase
 from inventory.stock_service import get_current_stock
 
-
 def run():
-
     try:
         parts = supabase.table("parts_master") \
             .select("part_id, part_name") \
@@ -29,8 +27,7 @@ def run():
         pid = prompt(
             "Part ID (cancel to stop): ",
             completer=comp,
-            complete_while_typing=True
-        )
+            complete_while_typing=True)
 
         if pid.lower() == "cancel":
             return
