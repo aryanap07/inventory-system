@@ -3,13 +3,10 @@ from prompt_toolkit.completion import WordCompleter
 from services.supabase_client import supabase
 from inventory.stock_service import get_current_stock
 
-
 def cancel(x):
     return x.lower() == "cancel"
 
-
 def run():
-
     # load part ids for autocomplete
     try:
         parts = supabase.table("parts_master").select("part_id").execute().data
@@ -20,7 +17,6 @@ def run():
         return
 
     while True:
-
         customer = input("Customer (type cancel to stop): ")
         if cancel(customer):
             return
