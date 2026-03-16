@@ -1,6 +1,7 @@
+.gitignore
 # Environment variables
-.env
-services/.env
+.env.unique
+services/.env.unique
 
 # Python
 __pycache__/
