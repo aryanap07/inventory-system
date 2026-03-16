@@ -1,12 +1,10 @@
 import os
 
-
 def clear():
     os.system("cls" if os.name == "nt" else "clear")
 
-
-while True:
-
+def run():
+    while True:
     clear()
 
     print("=" * 50)
@@ -41,3 +39,6 @@ while True:
     else:
         print("\nInvalid choice")
         input("Press Enter to continue...")
+
+if __name__ == "__main__":
+    run()

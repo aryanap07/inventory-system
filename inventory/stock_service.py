@@ -12,7 +12,7 @@ def get_current_stock(part_id):
         .eq("part_id", part_id)\
         .execute().data
 
-    total_in = sum(int(i["quantity"]) for i in inward)
-    total_out = sum(int(o["quantity"]) for o in outward)
+    total_in = sum(int(i["quantity"] or 0) for i in inward)
+    total_out = sum(int(o["quantity"] or 0) for o in outward)
 
     return total_in - total_out
