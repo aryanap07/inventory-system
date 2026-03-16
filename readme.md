@@ -159,5 +159,4 @@ python main.py
 <div align="center">
 
 Built by [Aryan Patel](https://github.com/aryanap07) · For learning and demonstration purposes only
-
 </div>
